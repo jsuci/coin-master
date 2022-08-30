@@ -6,23 +6,13 @@
     <title>Coin Master Giveaway</title>
     <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.png" />
     <style>
-        @font-face {
-            font-family: 'Kobalt';
-            src: url('./fonts/Kobalt-Kartoon.eot');
-            src: url('./fonts/Kobalt-Kartoon.eot?#iefix') format('embedded-opentype'),
-                url('./fonts/Kobalt-Kartoon.woff2') format('woff2'),
-                url('./fonts/Kobalt-Kartoon.woff') format('woff'),
-                url('./fonts/Kobalt-Kartoon.ttf') format('truetype');
-            font-weight: 500;
-            font-style: normal;
-            font-display: swap;
-        }
-
         html {
             background: rgb(240,240,250);
             background: radial-gradient(circle, rgba(240,240,250,1) 0%, rgba(0,212,255,1) 100%);
             margin: 0;
             padding: 0;
+            font-family: Verdana, sans-serif;
+            font-style: normal;
         }
         .logo {
             width: 100%;
@@ -30,7 +20,7 @@
             height: auto;
         }
         .container {
-            border: 1px solid black;
+            border: 0px solid black;
             display: flex;
             width: 100%;
             max-width: 680px;
@@ -39,9 +29,10 @@
             flex-direction: column;
             border-radius: 6px;
             align-items: center;
+            background-color: aliceblue;
         }
         .column {
-            border: 1px solid red;
+            border: 0px solid red;
         }
         .gap2em {
             margin-top: 2em;
@@ -52,20 +43,62 @@
             height: auto;
         }
         .message {
-            font-family: Verdana, sans-serif;
             font-weight: 700;
             font-style: normal;
             font-size: 2em;
             color: #000;
             text-align: center;
         }
+        .hlt {
+            /* text-decoration: underline; */
+            color: red;
+        }
+        .instruction {
+            font-weight: 500;
+            font-size: 1.5em;
+            color: #000;
+            text-align: center;
+        }
+        .steps {
+            border: 1px solid green;
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+        }
+        .stepText {
+            font-size: 1.5em;
+            font-weight: 500;
+            color: red;
+        }
+        .stepsTextMessage {
+            font-size: 1em;
+            color: black;
+            font-weight: 500;
+        }
+        .stepClaim {
+            color: green;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="column"><img class="logo" src="./images/coin-master-logo-.png" alt=""></div>
-        <!-- <div class="column gap2em"><img class="reward" src="./images/5k-spins-2.jpg" alt=""></div> -->
-        <div class="column"><p class="message">FREE Spin and Coin Links Giveaway! (Updated Daily)</p></div>
+        <div class="column"><p class="message">FREE Spins and Coins Giveaway! <span class="hlt">(Update Links Daily)</span></p></div>
+        <div class="column"><img class="reward" src="./images/coin-master-rewards-2.jpg" alt=""></div>
+        <div class="column"><p class="instruction">Follow 2 Easy Steps Below to Claim Your Reward:</p></div>
+        <div class="column steps">
+            <span class="stepText">STEP 1:</span>
+            <p class="stepsTextMessage">Tweet on Twitter or Share on Facebook.<br/>The more you share the more rewards you will get.</p>
+        </div>
+        <div class="column steps gap2em">
+            <span class="stepText">STEP 2:</span>
+            <p class="stepsTextMessage">Follow us on Twitter or Facebook<br/>Get updates on our latest Coin Master Giveaways!</p>
+        </div>
+        <div class="column steps gap2em">
+            <span class="stepText">CLAIM</span>
+            <p class="stepsTextMessage">Congratulations! Pick the reward of your choice and enjoy!</p>
+        </div>
+
     </div>
 </body>
 </html>
