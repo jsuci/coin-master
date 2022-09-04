@@ -68,7 +68,7 @@
             width: 100%;
             max-width: 480px;
             text-align: center;
-            padding-bottom: 24px;
+            padding: 24px;
             box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
             -webkit-box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
             -moz-box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
@@ -125,7 +125,7 @@
         </div>
         <div class="column steps gap2em">
             <span class="stepText">CLAIM</span>
-            <p class="stepsTextMessage">Congratulations! Pick the reward of your choice and enjoy!</p>
+            <p class="stepsTextMessage">Congratulations!<br/>Pick the reward of your choice and enjoy!</p>
             <a href="javascript:void(0);" onclick ="checkStatus()" id="claim1"><img class="claim" src="./images/claim-now-60b-50k.png" alt=""></a>
             <a href="javascript:void(0);" onclick ="checkStatus()" id="claim2"><img class="claim gap2em" src="./images/claim-now-40b-35k.png" alt=""></a>
             <a href="javascript:void(0);" onclick ="checkStatus()" id="claim3"><img class="claim gap2em" src="./images/claim-now-12b-20k.png" alt=""></a>
@@ -137,9 +137,9 @@
         function checkStatus() {
 
             if (!(twitterShareClick && facebookShareClick)) {
-                alert("Please complete STEP 1 first before claiming this reward.")
+                alert("Please complete STEP 1 before claiming this reward.")
             } else if (!(twitterFollowClick && facebookFollowClick)) {
-                alert("Please complete STEP 2 first before claiming this reward.")
+                alert("Please complete STEP 2 before claiming this reward.")
             } else {
                 call_locker();
             }

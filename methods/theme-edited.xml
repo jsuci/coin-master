@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='indie.xml' b:templateVersion='1.3.3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <meta content='https://cmgiveaways.blogspot.com/' property='og:url'/>
+    <meta content='website' property='og:type'/>
+    <meta content='Coin Master Giveaway' property='og:title'/>
+    <meta content='Don&apos;t miss Your FREE Coins and SPINS Today! 🎁' property='og:description'/>
+    <meta content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhL4ywrit2ic5ji0UKTl8RIYjC5bPhcbUfLpTbwD3nHbAtwCTFHFA5CJp_u4Kw088XnHSSNmwvus17oIROQzyMFwZXQ3ucndXddnGtploIN44nU8Lsl6bsNjCax6zSC4V98EEF94-dR2h92CIlkWJxD8bASCy-DHwyO4kSU4JWrOJKySab_NSZdlzqd/s1600/coin-master-rewards.jpg' property='og:image'/>
+
+    <meta content='summary_large_image' name='twitter:card'/>
+    <meta content='@coinmasterfan6' name='twitter:site'/>
+    <meta content='Coin Master Giveaway' name='twitter:title'/>
+    <meta content='Claim Your Free COINS and SPINS Today' name='twitter:description'/>
+    <meta content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhL4ywrit2ic5ji0UKTl8RIYjC5bPhcbUfLpTbwD3nHbAtwCTFHFA5CJp_u4Kw088XnHSSNmwvus17oIROQzyMFwZXQ3ucndXddnGtploIN44nU8Lsl6bsNjCax6zSC4V98EEF94-dR2h92CIlkWJxD8bASCy-DHwyO4kSU4JWrOJKySab_NSZdlzqd/s1600/coin-master-rewards.jpg' name='twitter:image'/>
+    <title><data:view.title.escaped/></title>
+
+    <b:skin version='1.3.3'><![CDATA[
+        html {
+            background: rgb(240,240,250);
+            background: radial-gradient(circle, rgba(240,240,250,1) 0%, rgba(0,212,255,1) 100%);
+            margin: 0;
+            padding: 0;
+            font-family: Verdana, sans-serif;
+            font-style: normal;
+        }
+        .logo {
+            width: 100%;
+            max-width: 128px;
+            height: auto;
+        }
+        .container {
+            border: 0px solid black;
+            display: flex;
+            width: 100%;
+            max-width: 680px;
+            margin: 2em auto;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 6px;
+            align-items: center;
+            background-color: aliceblue;
+            padding: 2em;
+        }
+        .column {
+            border: 0px solid red;
+        }
+        .gap2em {
+            margin-top: 2em;
+        }
+        .gap1em {
+            margin-top: 1em;
+        }
+        .reward {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+        }
+        .message {
+            font-weight: 700;
+            font-style: normal;
+            font-size: 2em;
+            color: #000;
+            text-align: center;
+        }
+        .hlt {
+            /* text-decoration: underline; */
+            color: red;
+        }
+        .instruction {
+            font-weight: 500;
+            font-size: 1.5em;
+            color: #000;
+            text-align: center;
+        }
+        .steps {
+            /* border: 1px solid green; */
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            padding: 24px;
+            box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+        }
+        .stepText {
+            font-size: 1.5em;
+            font-weight: 500;
+            color: red;
+        }
+        .stepsTextMessage {
+            font-size: 1em;
+            color: black;
+            font-weight: 500;
+        }
+        .stepClaim {
+            color: green;
+        }
+        .claim {
+            width: 100%;
+            max-width: 240px;
+            text-align: center;
+        }
+    ]]></b:skin>
+
+  </head>
+
+  <body>
+    <b:section id='main'/>
+    &lt;div id=&quot;fb-root&quot;&gt;&lt;/div&gt;
+    &lt;script async defer crossorigin=&quot;anonymous&quot; src=&quot;https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v14.0&quot; nonce=&quot;ivgEOM1z&quot;&gt;&lt;/script&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;column&quot;&gt;&lt;img class=&quot;logo&quot; src=&quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhexoyLLvi-X59w4JHgys4AVXGZ2luJdPVxmGSJewOu-yyiDuEUN-VBPWrdNUDIImr4-X3JPO881Man2GSwc2XZlR8sR4cQSMwvN-L3USpBPMwbpJmWdIj8n0y8Ig4j2WVy4g6ZK0WInPA4dkmz-kX4o9eJUBJ8IeQuMLpcDEJhNPVEzVhyXRpV56iehA/s1600/coin-master-logo-.png&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;column&quot;&gt;&lt;p class=&quot;message&quot;&gt;FREE Spins and Coins Giveaway! &lt;span class=&quot;hlt&quot;&gt;(Update Links Daily)&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;column&quot;&gt;&lt;img class=&quot;reward&quot; src=&quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcnPTaQaOwP2Wf0a7OeS8qzDVD3T4jmyLLw1q68Voai8fO1dGHQMJoR-mbWbz_HTKtzVakXFYj81lACn8k6zdjrNMJrgwAOBMtBJJtWxgLlHa3wTJ4gGeV0Y4bUgkSJXx9dVkyMfLKt7KNEUe1H9Vpjrk44imQmhS67PL3tev8DHWVKLBZCLT_dIci9g/s1600/coin-master-rewards.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;column&quot;&gt;&lt;p class=&quot;instruction&quot;&gt;Follow 2 Easy Steps Below to Claim Your Reward:&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;column steps&quot;&gt;
+            &lt;span class=&quot;stepText&quot;&gt;STEP 1:&lt;/span&gt;
+            &lt;p class=&quot;stepsTextMessage&quot;&gt;Tweet on Twitter or Share on Facebook.&lt;br/&gt;The more you share the more rewards you will get.&lt;/p&gt;
+            &lt;div&gt;
+                &lt;a id=&quot;twitter-share&quot; href=&quot;https://twitter.com/share?&amp;text=Claim%20Your%20FREE%20Coins%20and%20SPINS%20Today!%20%F0%9F%91%89%20https%3A%2F%2Ftinyurl.com%2FCMGiveaways%0A%0A%23coinmaster%20%23coinmasterspin%20%23coinmasterfreespin%20%23coinmasterbonus%20%23coinmaster%20%23coinmasterfreespinslink%20%23coinmasterrewards&quot; onclick=&quot;popupWindow(this.href, &#039;Share on Twitter&#039;, window, 500, 350)&quot; target=&quot;_blank&quot; title=&quot;Share on Twitter&quot;&gt;Share on Twitter&lt;/a&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;gap1em&quot;&gt;
+                &lt;a id=&quot;facebook-share&quot; href=&quot;https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2F100430466118095%2Fphotos%2Fa.116476127846862%2F116476067846868%2F&amp;t=Coin%20Master%20Giveaway&quot; onclick=&quot;popupWindow(this.href, &#039;Share on Facebook&#039;, window, 500, 350)&quot; target=&quot;_blank&quot; title=&quot;Share on Facebook&quot;&gt;Share on Facebook&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;column steps gap2em&quot;&gt;
+            &lt;span class=&quot;stepText&quot;&gt;STEP 2:&lt;/span&gt;
+            &lt;p class=&quot;stepsTextMessage&quot;&gt;Follow us on Twitter or Facebook&lt;br/&gt;Get updates on our latest Coin Master Giveaways!&lt;/p&gt;
+            &lt;div&gt;
+                &lt;a id=&quot;twitter-follow&quot; href=&quot;https://twitter.com/coinmasterfan6?ref_src=twsrc%5Etfw&quot; onclick=&quot;popupWindow(this.href, &#039;Follow Us on Twitter&#039;, window, 500, 350)&quot; target=&quot;_blank&quot; title=&quot;Follow on Twitter&quot;&gt;Follow on Twitter&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;gap1em&quot;&gt;
+                &lt;a id=&quot;facebook-follow&quot; href=&quot;https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FCoin-Master-Fans-100430466118095&amp;tabs&amp;width=450&amp;height=130&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId&quot; onclick=&quot;popupWindow(this.href, &#039;Like on Facebook&#039;, window, 450, 130)&quot; target=&quot;_blank&quot; title=&quot;Like on Facebook&quot;&gt;Like on Facebook&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;column steps gap2em&quot;&gt;
+            &lt;span class=&quot;stepText&quot;&gt;CLAIM&lt;/span&gt;
+            &lt;p class=&quot;stepsTextMessage&quot;&gt;Congratulations!&lt;br/&gt;Pick the reward of your choice and enjoy!&lt;/p&gt;
+            &lt;a href=&quot;javascript:void(0);&quot; onclick =&quot;checkStatus()&quot; id=&quot;claim1&quot;&gt;&lt;img class=&quot;claim&quot; src=&quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEju_QFtp7YpKkiWf3iwtGz5a2W6Z2N5meEIMq0t5RV4WafiUQNJR6Ev5Qsq_xnZRk1nr8jMxWBxdurKvBj4-5bFRlSKQBWGbXl2mC_QywaJ_bglEGasPB-J_Z7lza8LbAnTm96p-s5xVG8Kzee9woYonXY896OhB_9ybK5zJA_qP0haneH7ZwMwthfu_w/s1600/claim-now-60b-50k.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
+            &lt;a href=&quot;javascript:void(0);&quot; onclick =&quot;checkStatus()&quot; id=&quot;claim2&quot;&gt;&lt;img class=&quot;claim gap2em&quot; src=&quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBNzmyJouYx9u8xUyg_uDmferZaQEEt6SdsGcfvN2lTfRtD71hbR6J077RJ7g94cZaNBGlLpPx_RnJGuvFnZqNi_8-8kWDHZDr-SlMEwpiumOvGtaUu_cpBTP30wKUBYMb1rKkJa8FJYvNoDWYaZVRW83jCoc-KFuXHHz52tQNT0e_G4gUnnf6uPdc8Q/s1600/claim-now-40b-35k.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
+            &lt;a href=&quot;javascript:void(0);&quot; onclick =&quot;checkStatus()&quot; id=&quot;claim3&quot;&gt;&lt;img class=&quot;claim gap2em&quot; src=&quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUipTDgde9zDXAA8bCrMqin1HjLa-aTB8s2kjROiUDw90NBiaXOmCW9JkYK97uVB_TAfxy1STD0NgUJ9NCGXy2P1nJS02Tyj1wNjavLZUJc-9tR2U6kC_KvCcQXIRyIeiQ5wWnZHMLKKpJyAqkvHA5uZzrlfnYKA7pW3NCrieizhwdgNs1UVJA1grzig/s1600/claim-now-12b-20k.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        function _0x5520(){const _0xe184c8=[&#039;click&#039;,&#039;addEventListener&#039;,&#039;47700Oikxqq&#039;,&#039;8953nCXgkc&#039;,&#039;93145XyGTMh&#039;,&#039;toolbar=no,\x20location=no,\x20directories=no,\x20status=no,\x20menubar=no,\x20scrollbars=no,\x20resizable=no,\x20copyhistory=no,\x20width=&#039;,&#039;1298979DKdsKq&#039;,&#039;Please\x20complete\x20STEP\x201\x20before\x20claiming\x20this\x20reward.&#039;,&#039;twitter-share&#039;,&#039;4777168clxxhS&#039;,&#039;Please\x20complete\x20STEP\x202\x20before\x20claiming\x20this\x20reward.&#039;,&#039;top&#039;,&#039;outerWidth&#039;,&#039;8GZLDFp&#039;,&#039;,\x20top=&#039;,&#039;37832NhHtMJ&#039;,&#039;facebook-follow&#039;,&#039;1992HRLATv&#039;,&#039;screenX&#039;,&#039;690pMBVCN&#039;,&#039;facebook-share&#039;,&#039;screenY&#039;,&#039;twitter-follow&#039;,&#039;,\x20left=&#039;,&#039;1969356MSnnKD&#039;,&#039;216WeSrXq&#039;];_0x5520=function(){return _0xe184c8;};return _0x5520();}const _0x41cd50=_0x12a0;(function(_0x5a60bc,_0x5dcf29){const _0x443a96=_0x12a0,_0x30eb69=_0x5a60bc();while(!![]){try{const _0x400e87=parseInt(_0x443a96(0x156))/0x1*(-parseInt(_0x443a96(0x158))/0x2)+-parseInt(_0x443a96(0x161))/0x3+parseInt(_0x443a96(0x162))/0x4*(parseInt(_0x443a96(0x167))/0x5)+parseInt(_0x443a96(0x15a))/0x6*(parseInt(_0x443a96(0x166))/0x7)+-parseInt(_0x443a96(0x152))/0x8+-parseInt(_0x443a96(0x165))/0x9*(-parseInt(_0x443a96(0x15c))/0xa)+parseInt(_0x443a96(0x14f))/0xb;if(_0x400e87===_0x5dcf29)break;else _0x30eb69[&#039;push&#039;](_0x30eb69[&#039;shift&#039;]());}catch(_0x17ec0b){_0x30eb69[&#039;push&#039;](_0x30eb69[&#039;shift&#039;]());}}}(_0x5520,0x7c611));function checkStatus(){const _0x4a385e=_0x12a0;if(!(twitterShareClick&amp;&amp;facebookShareClick))alert(_0x4a385e(0x150));else!(twitterFollowClick&amp;&amp;facebookFollowClick)?alert(_0x4a385e(0x153)):call_locker();}function _0x12a0(_0x4e9561,_0x40d12e){const _0x5520d7=_0x5520();return _0x12a0=function(_0x12a02d,_0x2d1d08){_0x12a02d=_0x12a02d-0x14f;let _0x4f6ae6=_0x5520d7[_0x12a02d];return _0x4f6ae6;},_0x12a0(_0x4e9561,_0x40d12e);}function popupWindow(_0x1d2ece,_0x451cf5,_0x4af1cb,_0x582b07,_0x1b13d2){const _0x3937d5=_0x12a0,_0x609c7c=_0x4af1cb[_0x3937d5(0x154)][&#039;outerHeight&#039;]/0x2+_0x4af1cb[_0x3937d5(0x154)][_0x3937d5(0x15e)]-_0x1b13d2/0x2,_0x4bfe3e=_0x4af1cb[&#039;top&#039;][_0x3937d5(0x155)]/0x2+_0x4af1cb[_0x3937d5(0x154)][_0x3937d5(0x15b)]-_0x582b07/0x2;return _0x4af1cb[&#039;open&#039;](_0x1d2ece,_0x451cf5,_0x3937d5(0x168)+_0x582b07+&#039;,\x20height=&#039;+_0x1b13d2+_0x3937d5(0x157)+_0x609c7c+_0x3937d5(0x160)+_0x4bfe3e);}let [twitterShareClick,facebookShareClick,twitterFollowClick,facebookFollowClick]=[![],![],![],![]];document[&#039;getElementById&#039;](_0x41cd50(0x151))[_0x41cd50(0x164)](_0x41cd50(0x163),()=&gt;{twitterShareClick=!![];}),document[&#039;getElementById&#039;](_0x41cd50(0x15d))[_0x41cd50(0x164)](_0x41cd50(0x163),()=&gt;{facebookShareClick=!![];}),document[&#039;getElementById&#039;](_0x41cd50(0x15f))[_0x41cd50(0x164)](_0x41cd50(0x163),()=&gt;{twitterFollowClick=!![];}),document[&#039;getElementById&#039;](_0x41cd50(0x159))[_0x41cd50(0x164)](_0x41cd50(0x163),()=&gt;{facebookFollowClick=!![];}),document[_0x41cd50(0x164)](&#039;contextmenu&#039;,_0x140277=&gt;_0x140277[&#039;preventDefault&#039;]());
+    &lt;/script&gt;
+
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://gripverify.com/script_include.php?id=1204733&quot;&gt;&lt;/script&gt;
+  </body>
+</html>

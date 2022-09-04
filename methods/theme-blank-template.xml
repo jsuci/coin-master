@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='indie.xml' b:templateVersion='1.3.3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <meta content='https://cmgiveaways.blogspot.com/' property='og:url'/>
+    <meta content='website' property='og:type'/>
+    <meta content='Coin Master Giveaway' property='og:title'/>
+    <meta content='Don&apos;t miss Your FREE Coins and SPINS Today! 🎁' property='og:description'/>
+    <meta content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhL4ywrit2ic5ji0UKTl8RIYjC5bPhcbUfLpTbwD3nHbAtwCTFHFA5CJp_u4Kw088XnHSSNmwvus17oIROQzyMFwZXQ3ucndXddnGtploIN44nU8Lsl6bsNjCax6zSC4V98EEF94-dR2h92CIlkWJxD8bASCy-DHwyO4kSU4JWrOJKySab_NSZdlzqd/s1600/coin-master-rewards.jpg' property='og:image'/>
+
+    <meta content='summary_large_image' name='twitter:card'/>
+    <meta content='@coinmasterfan6' name='twitter:site'/>
+    <meta content='Coin Master Giveaway' name='twitter:title'/>
+    <meta content='Claim Your Free COINS and SPINS Today' name='twitter:description'/>
+    <meta content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhL4ywrit2ic5ji0UKTl8RIYjC5bPhcbUfLpTbwD3nHbAtwCTFHFA5CJp_u4Kw088XnHSSNmwvus17oIROQzyMFwZXQ3ucndXddnGtploIN44nU8Lsl6bsNjCax6zSC4V98EEF94-dR2h92CIlkWJxD8bASCy-DHwyO4kSU4JWrOJKySab_NSZdlzqd/s1600/coin-master-rewards.jpg' name='twitter:image'/>
+    <title><data:view.title.escaped/></title>
+
+    <b:skin version='1.3.3'><![CDATA[
+    ]]></b:skin>
+
+  </head>
+
+  <body>
+    <b:section id='page_body'/>
+  </body>
+</html>
