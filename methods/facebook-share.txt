@@ -1,0 +1,12 @@
+<meta property="og:url"           content="https://cmgiveaways.blogspot.com/" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="Coin Master Giveaway" />
+<meta property="og:description"   content="Don&apos;t miss Your FREE Coins and SPINS Today! 🎁" />
+<meta property="og:image"         content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhL4ywrit2ic5ji0UKTl8RIYjC5bPhcbUfLpTbwD3nHbAtwCTFHFA5CJp_u4Kw088XnHSSNmwvus17oIROQzyMFwZXQ3ucndXddnGtploIN44nU8Lsl6bsNjCax6zSC4V98EEF94-dR2h92CIlkWJxD8bASCy-DHwyO4kSU4JWrOJKySab_NSZdlzqd/s1600/coin-master-rewards.jpg" />
+
+
+<!-- after body tag -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0" nonce="ivgEOM1z"></script>
+
+<div class="fb-share-button" data-href="https://www.facebook.com/100430466118095/photos/a.116476127846862/116476067846868/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2F100430466118095%2Fphotos%2Fa.116476127846862%2F116476067846868%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>

