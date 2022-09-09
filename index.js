@@ -35,10 +35,111 @@ async function startBot() {
     // })
 
     await login(page);
+    await getFollowers(page, 'https://twitter.com/BentalbSimo')
+
+    console.log('taking screenshot.')
+    await delay(5000);
+    await page.screenshot({ path: 'test-screenshot.jpg' , type: 'jpeg' });
 
 }
 
+async function getFollowers(page, url) {
 
+    console.log('opening followers page.')
+    await page.goto(url, {
+        waitUntil: 'load',
+    });
+
+    console.log("getting total followers.")
+    await page.waitForSelector("div:nth-child(2) > a[role='link'] > span > span", {
+        timeout: 60000,
+        visible: true,
+    }).then(async (element) => {
+        const followersCount = await page.$eval("div:nth-child(2) > a[role='link'] > span > span", (el) => {
+            function convertToInt(num) {
+                let value = 0;
+    
+                if (num.includes("M")) {
+                    value = parseInt(parseFloat(num) * 1000000);
+                } else if (num.includes("K")) {
+                    value = parseInt(parseFloat(num) * 10000);
+                } else {
+                    value = parseInt(num.replace(",", ""))
+                }
+
+                return value;
+    
+            }
+            return convertToInt(el.innerText);
+        })
+
+        console.log(`total followers: ${followersCount}`);
+
+        console.log("clicking followers list.")
+        await page.click("div:nth-child(2) > a[role='link'] > span > span")
+        console.log("5sec delay.")
+        await delay(5000)
+
+        await page.waitForSelector("div[data-testid='cellInnerDiv']", {
+            timeout: 60000,
+            visible: true,
+        }).then(async () => {
+
+            const followers = await page.evaluate((followersCount) => {
+
+                async function filterDuplicate(arr) {
+                   const results =  Array.from(new Set(arr.map(x => x.id))).map(id => {
+                        return {
+                            id: id,
+                            link: arr.find(s => s.id === id).link
+                        }
+                    })
+
+                    return results;
+                }
+
+                async function getIDLInk(followersCount) {
+                    let entries = []
+
+                    while (await new Promise(resolve => setTimeout(() => resolve(entries.length), 20000)) <= followersCount) {
+
+                        await Promise.all([
+                            setTimeout(() => {
+                                console.log("scroll page.");
+                                window.scrollTo(0, window.document.body.scrollHeight)
+                            }, 3000),
+                            setTimeout(() => {
+                                console.log("get cells.");
+                                let cells = document.querySelectorAll("div[data-testid='cellInnerDiv']");
+                                for (let i = 0; i < (cells.length - 1); i++) {
+                                    const idLink = cells[i].querySelectorAll(
+                                        "div:nth-child(1) > a[role='link'][tabindex='-1']")[1];
+                                    const twitterID = idLink.innerText;
+                                    const twitterLink = idLink.href;
+        
+                                    entries.push({id: twitterID, link: twitterLink});
+                                }
+
+                            }, 9000),
+                        ])
+                        
+                        console.log(entries);
+                    }
+
+                    return await filterDuplicate(entries)
+                    
+                }
+
+                return getIDLInk(followersCount);
+
+
+            }, followersCount)
+
+            console.log(followers)
+        })
+    })
+
+}
 
 async function login(page) {
     try {
@@ -87,17 +188,19 @@ async function login(page) {
                 page.waitForXPath("//*[text()='Home']")
             ])
 
-            console.log('home page loaded.')
+            console.log('home page loaded.\n\n')
         }).catch(async () => {
             await page.waitForXPath("//*[text()='Home']", {
                 timeout: 60000,
                 visible: true,
             }).then(()=> {
-                console.log('home page loaded.')
+                console.log('home page loaded.\n\n')
             })
         })
 
-        page.screenshot({ path: 'test-screenshot.jpg' , type: 'jpeg' })
+        console.log("10sec delay.")
+        await delay(10000);
+
 
     } catch (e) {
         console.log(`error: ${e}`);
@@ -110,6 +213,10 @@ async function login(page) {
 async function restartBot(browser) {
     await browser.close();
     await startBot();
+}
+
+async function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 startBot();
