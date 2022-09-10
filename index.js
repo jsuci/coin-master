@@ -4,6 +4,7 @@ const ObjectsToCsv = require('objects-to-csv');
 
 
 async function startBot() {
+
     const browser = await puppeteer.launch({
         headless: true,
         slowMo: 50,
@@ -36,9 +37,33 @@ async function startBot() {
     //     'latency': 500
     // })
 
-    await login(page);
-    await getFollowers(page, 'https://twitter.com/BentalbSimo')
+    // global functions
+    await page.exposeFunction("filterDuplicate", filterDuplicate);
+    await page.exposeFunction("readCSV", readCSV);
+    await page.exposeFunction("saveCSV", saveCSV);
 
+    const twitterPages = [
+        "https://twitter.com/BentalbSimo",
+        "https://twitter.com/michelneri1",
+        "https://twitter.com/SandersDemonta",
+        "https://twitter.com/gemsbrawlstars2",
+        "https://twitter.com/coinmas08077718",
+        "https://twitter.com/spinsandcoins",
+        "https://twitter.com/Richard95739988",
+        "https://twitter.com/jollypeter7",
+        "https://twitter.com/miketoto14",
+        "https://twitter.com/simonju42561140",
+        "https://twitter.com/stevenm43732671",
+        "https://twitter.com/coinmaster09",
+    ]
+
+    await login(page);
+
+    for (const ePage of twitterPages) {
+        await getFollowers(page, ePage)
+
+    }
+    
     console.log('taking screenshot.')
     await delay(5000);
     await page.screenshot({ path: 'test-screenshot.jpg' , type: 'jpeg' });
@@ -87,10 +112,6 @@ async function getFollowers(page, url) {
             visible: true,
         }).then(async () => {
 
-            await page.exposeFunction("filterDuplicate", filterDuplicate);
-            await page.exposeFunction("readCSV", readCSV);
-            await page.exposeFunction("saveCSV", saveCSV);
-
             console.log("getting followers.");
             const followers = await page.evaluate((followersCount) => {
 
@@ -134,6 +155,8 @@ async function getFollowers(page, url) {
             console.log(`total followers gathered: ${followers.length}`);
             await saveCSV("followers.csv", followers);
 
+            console.log("\n\n")
+
         })
     })
 
@@ -168,7 +191,7 @@ async function saveCSV(fileName, lst) {
 
     console.log("saving data.")
     const csv = new ObjectsToCsv(filteredFollowers);
-    csv.toDisk(`./${fileName}`);
+    await csv.toDisk(`./${fileName}`, {append: true});
 }
 
 async function filterDuplicate(arr) {
