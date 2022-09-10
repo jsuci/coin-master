@@ -1,4 +1,6 @@
 const puppeteer = require('puppeteer');
+const csvToJson = require('convert-csv-to-json');
+const ObjectsToCsv = require('objects-to-csv');
 
 
 async function startBot() {
@@ -45,7 +47,7 @@ async function startBot() {
 
 async function getFollowers(page, url) {
 
-    console.log('opening followers page.')
+    console.log(`opening ${url} page.`)
     await page.goto(url, {
         waitUntil: 'load',
     });
@@ -85,18 +87,12 @@ async function getFollowers(page, url) {
             visible: true,
         }).then(async () => {
 
+            await page.exposeFunction("filterDuplicate", filterDuplicate);
+            await page.exposeFunction("readCSV", readCSV);
+            await page.exposeFunction("saveCSV", saveCSV);
+
+            console.log("getting followers.");
             const followers = await page.evaluate((followersCount) => {
-
-                async function filterDuplicate(arr) {
-                   const results =  Array.from(new Set(arr.map(x => x.id))).map(id => {
-                        return {
-                            id: id,
-                            link: arr.find(s => s.id === id).link
-                        }
-                    })
-
-                    return results;
-                }
 
                 async function getIDLInk(followersCount) {
                     let entries = []
@@ -126,19 +122,64 @@ async function getFollowers(page, url) {
                         console.log(entries);
                     }
 
-                    return await filterDuplicate(entries)
+                    return filterDuplicate(entries)
                     
                 }
 
                 return getIDLInk(followersCount);
 
 
-            }, followersCount)
+            }, followersCount);
 
-            console.log(followers)
+            console.log(`total followers gathered: ${followers.length}`);
+            await saveCSV("followers.csv", followers);
+
         })
     })
 
+}
+
+async function readCSV(fileName) {
+    let results = []
+
+    try {
+        let json = csvToJson.getJsonFromCsv(fileName);
+        for(let i = 0; i < json.length; i++) {
+            results.push(json[i]);
+        }
+    } catch (e) {
+        console.log("csv not found.")
+    }
+
+    return results;
+}
+
+async function saveCSV(fileName, lst) {
+    console.log("reading previous data.")
+    let prevFollowers = await readCSV(fileName)
+
+    console.log("merging new data.")
+    let mergeFollowers = prevFollowers.concat(lst);
+    console.log(`total merged: ${mergeFollowers.length}`)
+
+    console.log("filtering data.")
+    let filteredFollowers = await filterDuplicate(mergeFollowers)
+    console.log(`total filtered: ${filteredFollowers.length}`)
+
+    console.log("saving data.")
+    const csv = new ObjectsToCsv(filteredFollowers);
+    csv.toDisk(`./${fileName}`);
+}
+
+async function filterDuplicate(arr) {
+    const results =  Array.from(new Set(arr.map(x => x.id))).map(id => {
+            return {
+                id: id,
+                link: arr.find(s => s.id === id).link
+            }
+        })
+
+        return results;
 }
 
 async function login(page) {
@@ -187,18 +228,19 @@ async function login(page) {
                 homePage[0].click(),
                 page.waitForXPath("//*[text()='Home']")
             ])
-
-            console.log('home page loaded.\n\n')
         }).catch(async () => {
-            await page.waitForXPath("//*[text()='Home']", {
-                timeout: 60000,
-                visible: true,
-            }).then(()=> {
-                console.log('home page loaded.\n\n')
-            })
+
+            await delay(5000);
+            // await page.waitForXPath("//*[text()='Home']", {
+            //     timeout: 60000,
+            //     visible: true,
+            // }).then(()=> {
+            //     console.log('home page loaded.\n\n')
+            // })
         })
 
-        console.log("10sec delay.")
+        console.log('home page loaded.')
+        console.log("10sec delay.\n\n")
         await delay(10000);
 
 
