@@ -6,7 +6,7 @@ const ObjectsToCsv = require('objects-to-csv');
 async function startBot() {
 
     const browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         slowMo: 50,
         defaultViewport: null,
         executablePath: '.\\node_modules\\puppeteer\\.local-chromium\\win64-1036745\\chrome-win\\chrome.exe',
@@ -207,32 +207,40 @@ async function getFollowers(page, url) {
                                     let cells = document.querySelectorAll("div[data-testid='cellInnerDiv']");
                                     let temp = []
                                     for (let i = 0; i < (cells.length - 1); i++) {
-                                        const idLink = cells[i].querySelectorAll(
-                                            "div:nth-child(1) > a[role='link'][tabindex='-1']")[1];
-                                        const twitterID = idLink.innerText;
-                                        const twitterLink = idLink.href;
 
-                                        if (twitterID !== undefined) {
-                                            temp.push({id: twitterID, link: twitterLink});
+                                        try {
+                                            const idLink = cells[i].querySelectorAll(
+                                                "div:nth-child(1) > a[role='link'][tabindex='-1']")[1];
+                                            const twitterID = idLink.innerText;
+                                            const twitterLink = idLink.href;
+    
+                                            if (twitterID !== undefined) {
+                                                temp.push({id: twitterID, link: twitterLink});
+                                            }
+                                        } catch (e) {
+                                            console.log('an error occured. continue loop')
+                                            continue
                                         }
+
                                     }
 
                                     resolve(temp)
-                                }, 6000);
+                                }, 3000);
                             });
 
-                            await Promise.all([
+                            await Promise.allSettled([
                                 promise1,
                                 promise2                   
-                            ]).then((values) => {
+                            ]).then(async (values) => {
 
-                                entries.push(...values[1])
-
+                                if (values[1].status == 'fulfilled') {
+                                    entries.push(...values[1].value)
+                                }
                             }) //end Promise.all()
 
                             return entries
 
-                        }) // end page.evaluate()
+                        })// end page.evaluate()
 
                         resolve(partialFollowers)
 
