@@ -6,7 +6,7 @@ const ObjectsToCsv = require('objects-to-csv');
 async function startBot() {
 
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         slowMo: 50,
         defaultViewport: null,
         executablePath: '.\\node_modules\\puppeteer\\.local-chromium\\win64-1036745\\chrome-win\\chrome.exe',
@@ -148,32 +148,45 @@ async function tagUserToTweet(page, tweetUrl) {
     await page.waitForSelector(".DraftEditor-editorContainer", {
         timeout: 60000,
         visible: true,
-    }).then(async (input) => {
+    }).then(async (twitterInput) => {
 
         // read users from file
         console.log('reading saved users.')
         let csvUsers = await readCleanCSV('followers.csv')
         let shuffledUsers = await shuffle(csvUsers)
-        let selectedUsers = await (await selectUsers(3, shuffledUsers)).slice(0, 10)
+        let selectedUsers = (await selectUsers(3, shuffledUsers)).slice(0, 10)
         let messages = [
             "Congratulations",
             "You have won a prize from Coin Master",
-            "Claim you prizes",
+            "Claim your prizes",
 
         ]
 
-        for (const pickedUsers of selectedUsers) {
+        for (let pickedUsers of selectedUsers) {
+
+            // unpack selected users
+           pickedUsers = (pickedUsers.map(x => x.id))
+
 
             console.log('click tweet your reply')
             await delay(3000)
-            await input.click()
+            await twitterInput.click()
 
 
             console.log('typing message and tagging users')
             await delay(3000)
-            await page.type(inpput, `${messages[0]} ${pickedUsers}`, {delay: 100})
+            await twitterInput.type(`${messages[await randomInt(0, messages.length - 1)]} ${pickedUsers.join(' ')}`, {delay: 100})
 
-            await delay(10000)
+            
+            await delay(3000)
+            console.log('click reply button')
+            await page.evaluate(async () => {
+                document.querySelector("div[role='button'] > div[dir='auto'] > span > span").click()
+            })
+            await delay(5000);
+
+            console.log('delay for an hour.')
+            await delay(await randomInt(3000000, 3600000))
         }
 
     })
@@ -451,15 +464,19 @@ async function selectUsers(intUsers, arr) {
         start = end
         end = end + gap
 
-        let selectedUSers = arr.slice(start, end)
+        let selectedUsers = arr.slice(start, end)
 
-        if (selectedUSers.length == gap) {
-            results.push(selectedUSers)
+        if (selectedUsers.length == gap) {
+            results.push(selectedUsers)
         }
     }
 
     return results
 
+}
+
+async function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 startBot();
