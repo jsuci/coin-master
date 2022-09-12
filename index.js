@@ -120,9 +120,11 @@ async function startBot() {
     try {
         await login(page, browser);
 
-        for (const ePage of twitterPages) {
-            await getFollowers(page, ePage)
-        }
+        // for (const ePage of twitterPages) {
+        //     await getFollowers(page, ePage)
+        // }
+
+        await tagUserToTweet(page, 'https://twitter.com/CoinMasterFan6/status/1569123650053505025')
         
         console.log('taking screenshot.')
         await delay(5000);
@@ -133,6 +135,39 @@ async function startBot() {
         await restartBot(browser);
     }
 
+}
+
+async function tagUserToTweet(page, tweetUrl) {
+
+    // read users from file
+    console.log('reading users.')
+    const users = await readCleanCSV('followers.csv')
+
+    // go to tweet url
+    console.log('going to tweet page.')
+    await page.goto(tweetUrl, {
+        waitUntil: 'load',
+    })
+
+    await page.waitForSelector(".DraftEditor-editorContainer", {
+        timeout: 60000,
+        visible: true,
+    }).then(async (element) => {
+        console.log("click tweet your reply.")
+        await element.click()
+
+        // tag user to tweet
+        console.log('tagging users.')
+        for (let i = 0; i < users.length; i++) {
+            if (i % 2 == 0 && i != 0) {
+                console.log(users[i - 1].id, users[i].id)
+            }
+        }
+    })
+
+
+
+    
 
 }
 
@@ -259,7 +294,6 @@ async function getFollowers(page, url) {
             console.log('cleaning followers.csv')
             const csvEntries = await readCleanCSV('followers.csv')
             console.log(`total saved followers: ${csvEntries.length}`)
-            await saveCSV('followers.csv', csvEntries, false)
 
 
         })
@@ -269,6 +303,7 @@ async function getFollowers(page, url) {
 
 async function readCleanCSV(fileName) {
     let results = []
+    let filteredResults = []
 
     try {
         let json = csvToJson.fieldDelimiter(',').getJsonFromCsv(fileName);
@@ -276,11 +311,16 @@ async function readCleanCSV(fileName) {
         for(let i = 0; i < json.length; i++) {
             results.push(json[i]);
         }
+
+        filteredResults = await filterDuplicate(results)
+        await saveCSV(fileName, filteredResults, false)
+
     } catch (e) {
         console.log("csv not found.")
     }
 
-    return filterDuplicate(results);
+
+    return filteredResults;
 }
 
 async function saveCSV(fileName, lst, append) {
