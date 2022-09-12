@@ -170,12 +170,12 @@ async function tagUserToTweet(page, tweetUrl) {
 
             console.log('click tweet your reply')
             await delay(3000)
-            await twitterInput.click()
+            await page.click(".DraftEditor-editorContainer")
 
 
             console.log('typing message and tagging users')
             await delay(3000)
-            await twitterInput.type(`${messages[await randomInt(0, messages.length - 1)]} ${pickedUsers.join(' ')}`, {delay: 100})
+            await page.type(".DraftEditor-editorContainer", `${messages[await randomInt(0, messages.length - 1)]} ${pickedUsers.join(' ')}`, {delay: 100})
 
             
             await delay(3000)
@@ -186,7 +186,7 @@ async function tagUserToTweet(page, tweetUrl) {
             await delay(5000);
 
             console.log('delay for an hour.')
-            await delay(await randomInt(3000000, 3600000))
+            await delay(await randomInt(1200000, 2400000))
         }
 
     })
