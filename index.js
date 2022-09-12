@@ -139,10 +139,6 @@ async function startBot() {
 
 async function tagUserToTweet(page, tweetUrl) {
 
-    // read users from file
-    console.log('reading users.')
-    const users = await readCleanCSV('followers.csv')
-
     // go to tweet url
     console.log('going to tweet page.')
     await page.goto(tweetUrl, {
@@ -152,23 +148,35 @@ async function tagUserToTweet(page, tweetUrl) {
     await page.waitForSelector(".DraftEditor-editorContainer", {
         timeout: 60000,
         visible: true,
-    }).then(async (element) => {
-        console.log("click tweet your reply.")
-        await element.click()
+    }).then(async (input) => {
 
-        // tag user to tweet
-        console.log('tagging users.')
-        for (let i = 0; i < users.length; i++) {
-            if (i % 2 == 0 && i != 0) {
-                console.log(users[i - 1].id, users[i].id)
-            }
+        // read users from file
+        console.log('reading saved users.')
+        let csvUsers = await readCleanCSV('followers.csv')
+        let shuffledUsers = await shuffle(csvUsers)
+        let selectedUsers = await (await selectUsers(3, shuffledUsers)).slice(0, 10)
+        let messages = [
+            "Congratulations",
+            "You have won a prize from Coin Master",
+            "Claim you prizes",
+
+        ]
+
+        for (const pickedUsers of selectedUsers) {
+
+            console.log('click tweet your reply')
+            await delay(3000)
+            await input.click()
+
+
+            console.log('typing message and tagging users')
+            await delay(3000)
+            await page.type(inpput, `${messages[0]} ${pickedUsers}`, {delay: 100})
+
+            await delay(10000)
         }
+
     })
-
-
-
-    
-
 }
 
 async function getFollowers(page, url) {
@@ -420,6 +428,38 @@ async function restartBot(browser) {
 
 async function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+
+    return array
+}
+
+async function selectUsers(intUsers, arr) {
+
+    let gap = intUsers
+    let start = 0
+    let end = 0
+    let results = []
+
+    for (let i = 0; i < arr.length; i++) {
+
+        start = end
+        end = end + gap
+
+        let selectedUSers = arr.slice(start, end)
+
+        if (selectedUSers.length == gap) {
+            results.push(selectedUSers)
+        }
+    }
+
+    return results
+
 }
 
 startBot();
