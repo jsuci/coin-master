@@ -185,7 +185,7 @@ async function tagUserToTweet(page, tweetUrl) {
             })
             await delay(5000);
 
-            console.log('delay for an hour.')
+            console.log('delay for 20 - 40 minutes.\n')
             await delay(await randomInt(1200000, 2400000))
         }
 
